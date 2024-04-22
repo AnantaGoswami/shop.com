@@ -7,6 +7,7 @@
     border: none;
     outline: none;
     font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -66,7 +67,7 @@ body {
 }
 
 #search-btn {
-    padding: 0.5em 1em;
+    padding: 0.4em 1em;
     margin-left: 1em;
     background-color: #6759ff;
     color: #ffffff;
@@ -134,7 +135,7 @@ body {
     color: orangered;
 }
 
-.button {
+.add-to-cart-btn {
     width: 100%;
     position: relative;
     border: none;
@@ -254,6 +255,39 @@ body.showCart #products{
     text-align: center;
 }
 
+.popup {
+    display: none;
+    position: fixed;
+    top: 5.2rem;
+    right: 3rem;
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    z-index: 9999;
+}
+
+.popup-text {
+    font-size: 18px;
+}
+
+.popup-show {
+    display: block;
+    animation: fadeInUp 0.3s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 576px){
     #products {
         grid-template-columns: repeat(1, 1fr);
@@ -293,5 +327,34 @@ body.showCart #products{
     text-align: center; /* Center-align text */
     font-family: Arial, sans-serif; /* Font family */
     font-size: 14px; /* Font size */
-    margin: 0;
+    margin-top: 2rem;
+}
+
+.back-to-top {
+    /* padding: 10px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    /* padding: 0 12px; */
+    /* transition: background-color 0.3s ease; */
+}
+
+.back-to-top-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --tw-shadow: 0 4px 6px -1px rgba(156, 163, 175, 0.3), 0 2px 4px -1px rgba(156, 163, 175, 0.2);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 transparent), var(--tw-ring-shadow, 0 0 transparent), var(--tw-shadow); */
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+.back-to-top-icon:hover{
+    transform:scale(1.1);
+    transition: transform 0.3s ease;
 }

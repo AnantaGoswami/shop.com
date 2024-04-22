@@ -16,7 +16,7 @@ function displayItems(data) {
                         <div class="item-details">
                             <h1 class="title">${item.title}</h1>
                             <h2 class="price">$ <span>${item.price}</span> </h2>
-                            <button class="button" onclick="addToCart(${index})">Add to cart</button>
+                            <button class="add-to-cart-btn" onclick="addToCart(${index})">Add to cart</button>
                         </div>
                     </div>`;
     });
@@ -50,6 +50,10 @@ function addToCart(id) {
     cart.push(completedata[id]);
     // console.log(cart);
     displayCart();
+    document.querySelector(".popup").classList.add("popup-show");
+    setTimeout(() => {
+        document.querySelector(".popup").classList.remove("popup-show")
+    }, 2000);
 }
 
 function deleteItem(id){
@@ -74,12 +78,16 @@ function displayCart() {
                                     <img src="${item.image}" alt="img">
                                 </div>
                                 <h1 class="title">${item.title}</h1>
-                                <h2 class="price">${item.price}</h2>
+                                <h2 class="price">$${item.price}</h2>
                                 <i class="fa-solid fa-trash" onclick="deleteItem(${index})"></i>
                             </div>`
             total=total+item.price;
         });
         document.getElementById("cart-list").innerHTML = cartProducts;
-        document.getElementById("total").innerHTML = "$ "+total+".00";
+        document.getElementById("total").innerHTML = "$" + total.toFixed(2);
     }
 }
+
+document.querySelector(".back-to-top-icon").addEventListener("click", ()=>{
+    window.scrollTo(0,0);
+});
