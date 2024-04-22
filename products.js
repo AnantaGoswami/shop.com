@@ -15,13 +15,13 @@ function displayItems(data) {
                         </div>
                         <div class="item-details">
                             <h1 class="title">${item.title}</h1>
-                            // <a href="#" class="category">${item.category}</a> 
                             <h2 class="price">$ <span>${item.price}</span> </h2>
                             <button class="button" onclick="addToCart(${index})">Add to cart</button>
                         </div>
                     </div>`;
     });
     document.getElementById("products").innerHTML = products;
+    // <a href="#" class="category">${item.category}</a> 
 }
 
 document.getElementById("search").addEventListener('keyup', (e) => {
@@ -60,10 +60,11 @@ function deleteItem(id){
 function displayCart() {
     let total = 0;
     document.getElementById("count").innerHTML = cart.length;
-    
+
     let cartProducts = '';
     if (cart.length == 0) {
         document.getElementById('cart-list').innerText = "Your cart is empty!";
+        // document.getElementById('cart-list').style.textAlign = "center";
         document.getElementById("total").innerHTML = "$ " + 0 + ".00";
     }
     else {
